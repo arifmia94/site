@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="bn" data-bs-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Page — Md Arif Mia</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+
+<style>
+  /* ===== Theme tokens — drives every Bootstrap component below ===== */
+  :root{
+    --bs-primary: #1567C9;
+    --bs-primary-rgb: 21,103,201;
+    --bs-secondary: #33343A;
+    --bs-secondary-rgb: 51,52,58;
+    --bs-body-font-family: 'Inter','Noto Sans Bengali',sans-serif;
+    --bs-body-bg: #F5F7FB;
+    --bs-body-color: #1A1B1E;
+    --bs-border-radius: .75rem;
+    --bs-border-radius-sm: .5rem;
+    --bs-border-radius-lg: 1rem;
+    --bs-border-radius-xl: 1.25rem;
+    --bs-border-radius-2xl: 1.75rem;
+    --bs-link-color: var(--bs-primary);
+    --bs-link-hover-color: #0F52A3;
+    --font-display: 'Poppins', sans-serif;
+  }
+  h1,h2,h3,h4,.navbar-brand,.fw-display{font-family:var(--font-display);}
+  ::selection{background:var(--bs-primary);color:#fff;}
+
+  /* ===== Small helpers Bootstrap has no utility for ===== */
+  .glass-nav{background:rgba(255,255,255,.85);backdrop-filter:blur(10px);}
+  .bg-soft-primary{background:rgba(var(--bs-primary-rgb), .08);}
+  .text-gradient{
+    background:linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .avatar-blob{
+    position:absolute;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(var(--bs-primary-rgb),.18), rgba(var(--bs-primary-rgb),0) 70%);
+    z-index:0;pointer-events:none;
+  }
+
+  /* ===== Marquee (Bootstrap has no auto-scroll component) ===== */
+  .marquee-outer{
+    overflow:hidden;width:100%;
+    -webkit-mask-image:linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+    mask-image:linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+  }
+  .marquee-track{display:flex;width:max-content;}
+  .marquee-outer:hover .marquee-track{animation-play-state:paused;}
+  .track-a{gap:1.5rem;animation:scrollLeft 36s linear infinite;}
+  .track-b{gap:1.5rem;animation:scrollLeft 30s linear infinite;}
+  .track-c{gap:1.25rem;animation:scrollLeft 24s linear infinite;}
+  @keyframes scrollLeft{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  @media (prefers-reduced-motion: reduce){ .marquee-track{animation:none !important;} }
+  .work-card-fixed{flex:0 0 300px;width:300px;}
+  .tool-card-fixed{flex:0 0 150px;width:150px;}
+
+  /* ===== Timeline connector (no Bootstrap equivalent) ===== */
+  .timeline-rail{position:relative;padding-left:2rem;}
+  .timeline-rail::before{content:"";position:absolute;left:.4rem;top:.35rem;bottom:.35rem;width:2px;background:rgba(var(--bs-secondary-rgb),.12);}
+  .timeline-dot{position:absolute;left:-2rem;top:.25rem;width:.9rem;height:.9rem;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  .navbar-nav .nav-link, .navbar-nav .dropdown-item{font-size:.8rem;}
+</style>
+
+	
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg glass-nav fixed-top shadow-sm py-3" id="mainNav">
+  <div class="container container-xl">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <img src="assets/am-logo.png" alt="AM Logo" height="44">
+      <span class="d-flex flex-column lh-sm">
+        <span class="fw-bold fs-5">Md Arif Mia</span>
+        <span class="text-secondary d-none d-sm-inline" style="font-size:.7rem;">Graphic Designer &amp; Brand Identity Specialist</span>
+      </span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-2" href="index.html#work">Work</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-2" href="#" data-bs-toggle="dropdown">Project</a>
+          <ul class="dropdown-menu shadow border-0 rounded-4 p-2">
+            <!-- Project B and C: paste your form links below, replacing each href="#" -->
+            <li><a class="dropdown-item rounded-3 py-2" href="project-id-card.html">Project A</a></li>
+            <li><a class="dropdown-item rounded-3 py-2" href="#" target="_blank" rel="noopener">Project B</a></li>
+            <li><a class="dropdown-item rounded-3 py-2" href="#" target="_blank" rel="noopener">Project C</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link px-2" href="index.html#expertise">Expertise</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="index.html#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="index.html#experience">Experience</a></li>
+        <li class="nav-item mt-2 mt-lg-0 ms-lg-1">
+          <a class="btn btn-sm btn-outline-dark rounded-pill px-3" href="https://behance.net/arifmia88" target="_blank" rel="noopener">Behance</a>
+        </li>
+        <li class="nav-item mt-2 mt-lg-0 ms-lg-1">
+          <a class="btn btn-sm btn-primary bg-gradient rounded-pill px-4" href="index.html#contact">Get in Touch</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!--  PAGE CONTENT — paste your content in place of this section   -->
+<!-- ============================================================ -->
+<section style="padding-top:9.5rem;padding-bottom:6rem;">
+  <div class="container container-xl">
+
+	<style>
+		 /*=========CUSTOM CSS FOR  =  Student FORM =================
+		  Custom CSS kept to an absolute minimum — only for things Bootstrap
+		     utilities cannot express: the ID card's fixed 2.2in x 3.5in print
+		     ratio, a few fixed-pixel image sizes, and the print-mode fix. */
+		  #idCard{ width:220px; aspect-ratio:2.2/3.5; }
+		  .card-seal-img{ width:38px; height:auto; }
+		  .card-photo-box{ width:104px; height:128px; }
+		  .photo-thumb-size{ width:46px; height:56px; padding:2px; }
+		  #photoThumb img, #cvPhotoBox img{ width:100%; height:100%; object-fit:cover; }
+		
+		  @media print{
+		    body *{ visibility:hidden; }
+		    #printCard, #printCard *{ visibility:visible; }
+		    #printCard{ position:absolute; top:20px; left:20px; }
+		  }  
+		  /*===========================================================
+	</style>
+	  
+
+<!-- ==Student FORM CODE HERE, START============================ -->
+<div class="container py-4 py-md-5">
+  <div class="bg-white rounded-4 shadow p-4 p-md-5 mx-auto" style="max-width:880px;">
+
+    <div class="d-flex align-items-center gap-3 pb-3 mb-4 border-bottom border-success border-2">
+      <img src="assets/logo.png" alt="H.S.S. Law College logo" style="width:46px;height:auto;">
+      <div>
+        <div class="fw-bold fs-5">Hasem Surjo Society Law Collage</div>
+        <div class="text-muted small">Stadium Road, Barguna- 8700</div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h1 class="h4 fw-bold mb-1">Student ID Card Registration</h1>
+      <p class="text-muted small mb-0">Please fill in the details below to submit your information for the student ID card.</p>
+    </div>
+
+    <div class="alert alert-danger small d-none" id="configWarning">
+      Setup incomplete: replace <code>GOOGLE_SCRIPT_URL</code> inside this file with your Google Apps Script Web App URL, otherwise submissions will not be saved.
+    </div>
+
+    <div class="alert alert-success small d-none" id="toast" role="alert"></div>
+
+    <div class="row g-4">
+
+      <!-- LEFT: live card preview -->
+      <div class="col-lg-4">
+        <div class="sticky-top" style="top:1rem;">
+          <div id="printCard">
+            <div id="idCard" class="position-relative overflow-hidden rounded-4 shadow bg-white border border-dark border-2 d-flex flex-column align-items-center p-3 mx-auto">
+              <div class="d-flex align-items-center gap-2 w-100 position-relative">
+                <img src="assets/logo.png" class="card-seal-img" alt="College logo">
+                <div class="flex-grow-1">
+                  <div class="fw-bold" id="cvCollege" style="font-size:12px; line-height:1.15;">H.S.S. Law College</div>
+                  <div class="text-muted text-uppercase" style="font-size:7px;">College Code: 1612</div>
+                </div>
+              </div>
+
+              <div id="cvPhotoBox" class="card-photo-box border border-3 border-success rounded-1 overflow-hidden d-flex align-items-center justify-content-center text-muted position-relative my-2" style="font-size:8px;">Photo</div>
+
+              <div class="fw-bold text-center position-relative" id="cvName" style="font-size:14px;">Student Name</div>
+              <div class="text-muted text-center position-relative" id="cvSession" style="font-size:10px;">Session: —</div>
+
+              <div class="w-100 position-relative mt-2 px-2" style="font-size:10px;">
+                <div class="row gx-1"><div class="col-5 fw-bold">Roll No</div><div class="col-7" id="cvRoll">: —</div></div>
+                <div class="row gx-1"><div class="col-5 fw-bold">Blood</div><div class="col-7" id="cvBlood">: —</div></div>
+                <div class="row gx-1"><div class="col-5 fw-bold">Contact</div><div class="col-7" id="cvContact">: —</div></div>
+              </div>
+
+              <div class="mt-auto position-relative text-center pt-2 w-100">
+                <svg viewBox="0 0 80 24" width="66" height="18">
+                  <path d="M4,18 C10,4 14,20 20,10 C26,2 30,18 36,12 C42,6 46,16 52,10 C58,6 62,14 70,8"
+                        stroke="#1C222B" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                </svg>
+                <div class="w-50 mx-auto border-top pt-1">
+                  <span class="text-muted" style="font-size:7.5px;">Issuing Authority</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center mt-3">
+            <button type="button" class="btn btn-outline-dark btn-sm" onclick="window.print()">Print preview</button>
+          </div>
+          <p class="text-muted small text-center mt-2">Live preview — updates as you fill the form. Card size: 2.2&Prime; &times; 3.5&Prime;.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT: form -->
+      <div class="col-lg-8">
+        <form id="idForm">
+
+          <div class="card mb-3">
+            <div class="card-header bg-white text-success text-uppercase small fw-bold">Institute Information</div>
+            <div class="card-body">
+              <label for="fCollege" class="form-label">College Name *</label>
+              <input type="text" id="fCollege" class="form-control" required value="H.S.S. Law College">
+            </div>
+          </div>
+
+          <div class="card mb-3">
+            <div class="card-header bg-white text-success text-uppercase small fw-bold">Student Information</div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="fName" class="form-label">Student Name *</label>
+                  <input type="text" id="fName" class="form-control" required placeholder="Full name as it should appear on the card">
+                </div>
+                <div class="col-md-6">
+                  <label for="fSession" class="form-label">Session *</label>
+                  <input type="text" id="fSession" class="form-control" maxlength="9" required placeholder="e.g. 2025-26">
+                  <div class="invalid-feedback"> e.g. 2025-26.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="fRoll" class="form-label">Roll *</label>
+                  <input type="text" id="fRoll" class="form-control" inputmode="numeric" pattern="[0-9]*" required>
+                  <div class="invalid-feedback">Digits only.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="fBlood" class="form-label">Blood Group *</label>
+                  <select id="fBlood" class="form-select" required>
+                    <option value="" disabled selected>Select blood group</option>
+                    <option>A+</option><option>A-</option>
+                    <option>B+</option><option>B-</option>
+                    <option>AB+</option><option>AB-</option>
+                    <option>O+</option><option>O-</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a blood group.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="fContact" class="form-label">Contact Number *</label>
+                  <input type="tel" id="fContact" class="form-control" inputmode="numeric" pattern="[0-9]*" maxlength="11" required placeholder="e.g. 01XXXXXXXXX">
+                  <div class="invalid-feedback">Digits only, e.g. 01XXXXXXXXX.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-3">
+            <div class="card-header bg-white text-success text-uppercase small fw-bold">Address</div>
+            <div class="card-body">
+              <label for="fAddress" class="form-label">Address *</label>
+              <textarea id="fAddress" class="form-control" required rows="3" placeholder="Village/Area, Post Office, Upazila, District"></textarea>
+            </div>
+          </div>
+
+          <div class="card mb-3">
+            <div class="card-header bg-white text-success text-uppercase small fw-bold">Photo</div>
+            <div class="card-body d-flex align-items-center gap-3">
+              <div id="photoThumb" class="img-thumbnail d-flex align-items-center justify-content-center text-muted small photo-thumb-size">No photo</div>
+              <div>
+                <label for="fPhoto" class="btn btn-outline-success btn-sm mb-1">Choose photo</label>
+                <input type="file" id="fPhoto" class="d-none" accept=".jpg,.jpeg,.png,image/jpeg,image/png" required>
+                <div class="form-text mb-0">JPG, JPEG or PNG, max 10MB</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-light border small d-flex align-items-center gap-2">
+            <span>⚠️</span> Please verify all information carefully before submitting.
+          </div>
+
+          <div class="d-flex align-items-center gap-3">
+            <button type="submit" class="btn btn-success px-4 py-2 fw-semibold" id="submitBtn">Submit</button>
+            <span class="text-muted small" id="statusMsg"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="text-center small text-muted border-top pt-3 mt-4">
+      <div>Your information is securely stored and kept confidential.</div>
+      <div class="mt-2">Crafted by <span class="text-success fw-bold">Arif Mia</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- =================Student FORM CODE HERE, END============================ -->
+	       <!-- ================================================= -->
+
+  </div>
+</section>
+
+	
+<footer id="contact" class="bg-dark bg-gradient text-light position-relative overflow-hidden py-4 py-lg-5">
+  <div class="avatar-blob" style="width:22rem;height:22rem;bottom:-9rem;left:-8rem;"></div>
+  <div class="container container-xl position-relative">
+    <div class="row g-4">
+      <div class="col-lg-5">
+        <img src="assets/am-logo.png" height="30" class="mb-2" style="filter:brightness(0) invert(1);opacity:.9;" alt="AM Logo">
+        <h2 class="display-6 fw-bold mb-2">LET'S <span class="text-primary">TALK.</span></h2>
+        <p class="text-light text-opacity-75 small mb-1" style="max-width:24rem;">
+          Get in touch for new projects, brand identity, or documentation work.
+        </p>
+        <p class="text-light text-opacity-50 small mb-3" style="font-family:'Noto Sans Bengali',sans-serif;max-width:24rem;">
+          যোগাযোগ করতে দ্বিধা করবেন না।
+        </p>
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="mailto:mdarifmahmud94@gmail.com" class="btn btn-sm btn-primary bg-gradient rounded-pill px-3">Send an Email</a>
+          <a href="https://behance.net/arifmia88" target="_blank" class="btn btn-sm btn-outline-light rounded-pill px-3">View Behance</a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-6">
+        <span class="text-uppercase small text-light text-opacity-50 fw-semibold d-block mb-2">Contact</span>
+        <span class="small text-light text-opacity-50 fw-semibold d-block mb-1">Primary Email</span>
+        <a href="mailto:mdarifmahmud94@gmail.com" class="d-block small text-light mb-2 text-decoration-none">mdarifmahmud94@gmail.com</a>
+        <span class="small text-light text-opacity-50 fw-semibold d-block mb-1">Direct Telephone &amp; WhatsApp</span>
+        <a href="tel:+8801829371662" class="d-block small text-light mb-2 text-decoration-none">+880 1829-371662</a>
+        <p class="small text-light text-opacity-75 mb-0">Mohammadpur, Dhaka-1207,<br>Current Posting: Barguna, Bangladesh</p>
+      </div>
+      <div class="col-lg-4 col-6">
+        <span class="text-uppercase small text-light text-opacity-50 fw-semibold d-block mb-2">Elsewhere</span>
+        <a href="https://behance.net/arifmia88" target="_blank" class="d-block small text-light mb-2 text-decoration-none">behance.net/arifmia88</a>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between flex-wrap gap-2 border-top border-light border-opacity-10 pt-3 mt-3">
+      <span class="small text-light text-opacity-50">© 2026 MD ARIF MIA</span>
+      <span class="small text-light text-opacity-50">DESIGNED FOR PRINT &amp; SCREEN</span>
+    </div>
+  </div>
+</footer>
+
+
+	
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+
+// ==================== Form scrtpt START ======= HSS Law Collge ID Card ==ENT===============
+	
+ const $ = (id) => document.getElementById(id);
+  const MAX_PHOTO_BYTES = 10 * 1024 * 1024; // 10MB
+  let photoDataUrl = "";
+
+  // ================================================================
+  // Paste your Google Apps Script Web App URL here (see setup instructions)
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwQibbXTojN1AC1NZZueCFnYLwTMc-Hrypy_QzA0WMsUrUozhMkHBvwpCnTq8A9xP7H/exec";
+  // ================================================================
+
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf("PASTE_YOUR") === 0) {
+    $('configWarning').classList.remove('d-none');
+  }
+
+  function updatePreview(){
+    const college = $('fCollege').value.trim() || 'College Name';
+    $('cvCollege').textContent = college;
+    $('cvName').textContent = $('fName').value.trim() || 'Student Name';
+    $('cvSession').textContent = 'Session: ' + ($('fSession').value.trim() || '—');
+    $('cvRoll').textContent = ': ' + ($('fRoll').value.trim() || '—');
+    $('cvBlood').textContent = ': ' + ($('fBlood').value || '—');
+    $('cvContact').textContent = ': ' + ($('fContact').value.trim() || '—');
+  }
+  document.querySelectorAll('#idForm input, #idForm select, #idForm textarea').forEach(el=>{
+    el.addEventListener('input', updatePreview);
+  });
+  updatePreview();
+
+  $('fPhoto').addEventListener('change', (e)=>{
+    const file = e.target.files[0];
+    const statusEl = $('statusMsg');
+    statusEl.textContent = '';
+    statusEl.className = 'text-muted small';
+    if(!file) return;
+
+    const isJpg = file.type === 'image/jpeg' || /\.jpe?g$/i.test(file.name);
+    if(!isJpg){
+      statusEl.textContent = 'Only JPG photos are accepted.';
+      statusEl.className = 'text-danger small';
+      e.target.value = '';
+      return;
+    }
+    if(file.size > MAX_PHOTO_BYTES){
+      statusEl.textContent = 'Photo must be 10MB or smaller.';
+      statusEl.className = 'text-danger small';
+      e.target.value = '';
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (ev)=>{
+      photoDataUrl = ev.target.result;
+      $('photoThumb').innerHTML = '<img src="'+photoDataUrl+'">';
+      $('cvPhotoBox').innerHTML = '<img src="'+photoDataUrl+'">';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  $('idForm').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const statusEl = $('statusMsg');
+    const btn = $('submitBtn');
+    statusEl.textContent = '';
+    statusEl.className = 'text-muted small';
+
+    if(!$('idForm').checkValidity()){
+      $('idForm').reportValidity();
+      return;
+    }
+    if(!photoDataUrl){
+      statusEl.textContent = 'Please choose a photo.';
+      statusEl.className = 'text-danger small';
+      return;
+    }
+    if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf("PASTE_YOUR") === 0) {
+      statusEl.textContent = 'Google Script URL is not configured yet.';
+      statusEl.className = 'text-danger small';
+      return;
+    }
+
+    const fd = new FormData();
+    fd.append('college', $('fCollege').value.trim());
+    fd.append('name', $('fName').value.trim());
+    fd.append('session', $('fSession').value.trim());
+    fd.append('roll', $('fRoll').value.trim());
+    fd.append('blood', $('fBlood').value);
+    fd.append('contact', $('fContact').value.trim());
+    fd.append('address', $('fAddress').value.trim());
+    fd.append('photo', photoDataUrl);
+
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    try{
+      const res = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: fd });
+      const data = await res.json();
+      if (data.result === 'success') {
+        showToast('Information submitted successfully. Thank you!');
+        const keepCollege = $('fCollege').value;
+        $('idForm').reset();
+        $('fCollege').value = keepCollege;
+        photoDataUrl = '';
+        $('photoThumb').innerHTML = 'No photo';
+        $('cvPhotoBox').innerHTML = 'Photo';
+        updatePreview();
+      } else {
+        throw new Error(data.message || 'unknown error');
+      }
+    }catch(err){
+      statusEl.textContent = 'Sorry, submission failed. Please try again.';
+      statusEl.className = 'text-danger small';
+      console.error(err);
+    }finally{
+      btn.disabled = false;
+      btn.textContent = 'Submit';
+    }
+  });
+
+  function showToast(msg){
+    const t = $('toast');
+    t.className = 'alert alert-success small';
+    t.textContent = msg;
+    window.scrollTo({top:0, behavior:'smooth'});
+    setTimeout(()=>{ t.classList.add('d-none'); }, 5000);
+  }
+// ====================Form scrtpt END======= HSS Law Collge ID Card ==ENT===============
+
+	
+	
+
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', ()=>{
+    nav.classList.toggle('py-2', window.scrollY > 30);
+    nav.classList.toggle('py-3', window.scrollY <= 30);
+  });
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+	
+</script>
+	
+</body>
+</html>
