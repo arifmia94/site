@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="bn" data-bs-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Arif Mia — Graphic Designer &amp; Brand Identity Specialist</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+
+<style>
+  /* ===== Theme tokens — drives every Bootstrap component below ===== */
+  :root{
+    --bs-primary: #1567C9;
+    --bs-primary-rgb: 21,103,201;
+    --bs-secondary: #33343A;
+    --bs-secondary-rgb: 51,52,58;
+    --bs-body-font-family: 'Inter','Noto Sans Bengali',sans-serif;
+    --bs-body-bg: #F5F7FB;
+    --bs-body-color: #1A1B1E;
+    --bs-border-radius: .75rem;
+    --bs-border-radius-sm: .5rem;
+    --bs-border-radius-lg: 1rem;
+    --bs-border-radius-xl: 1.25rem;
+    --bs-border-radius-2xl: 1.75rem;
+    --bs-link-color: var(--bs-primary);
+    --bs-link-hover-color: #0F52A3;
+    --font-display: 'Poppins', sans-serif;
+  }
+  h1,h2,h3,h4,.navbar-brand,.fw-display{font-family:var(--font-display);}
+  ::selection{background:var(--bs-primary);color:#fff;}
+
+  /* ===== Small helpers Bootstrap has no utility for ===== */
+  .glass-nav{background:rgba(255,255,255,.85);backdrop-filter:blur(10px);}
+  .bg-soft-primary{background:rgba(var(--bs-primary-rgb), .08);}
+  .text-gradient{
+    background:linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .avatar-blob{
+    position:absolute;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(var(--bs-primary-rgb),.18), rgba(var(--bs-primary-rgb),0) 70%);
+    z-index:0;pointer-events:none;
+  }
+
+  /* ===== Marquee (Bootstrap has no auto-scroll component) ===== */
+  .marquee-outer{
+    overflow:hidden;width:100%;
+    -webkit-mask-image:linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+    mask-image:linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+  }
+  .marquee-track{display:flex;width:max-content;}
+  .marquee-outer:hover .marquee-track{animation-play-state:paused;}
+  .track-a{gap:1.5rem;animation:scrollLeft 36s linear infinite;}
+  .track-b{gap:1.5rem;animation:scrollLeft 30s linear infinite;}
+  .track-c{gap:1.25rem;animation:scrollLeft 24s linear infinite;}
+  @keyframes scrollLeft{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  @media (prefers-reduced-motion: reduce){ .marquee-track{animation:none !important;} }
+  .work-card-fixed{flex:0 0 300px;width:300px;}
+  .tool-card-fixed{flex:0 0 150px;width:150px;}
+
+  /* ===== Timeline connector (no Bootstrap equivalent) ===== */
+  .timeline-rail{position:relative;padding-left:2rem;}
+  .timeline-rail::before{content:"";position:absolute;left:.4rem;top:.35rem;bottom:.35rem;width:2px;background:rgba(var(--bs-secondary-rgb),.12);}
+  .timeline-dot{position:absolute;left:-2rem;top:.25rem;width:.9rem;height:.9rem;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  .navbar-nav .nav-link, .navbar-nav .dropdown-item{font-size:.8rem;}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg glass-nav fixed-top shadow-sm py-3" id="mainNav">
+  <div class="container container-xl">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+      <img src="assets/am-logo.png" alt="AM Logo" height="44">
+      <span class="d-flex flex-column lh-sm">
+        <span class="fw-bold fs-5">Md Arif Mia</span>
+        <span class="text-secondary d-none d-sm-inline" style="font-size:.7rem;">Graphic Designer &amp; Brand Identity Specialist</span>
+      </span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-2" href="#work">Work</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-2" href="#" data-bs-toggle="dropdown">Project</a>
+          <ul class="dropdown-menu shadow border-0 rounded-4 p-2">
+            <!-- Project B and C: paste your form links below, replacing each href="#" -->
+            <li><a class="dropdown-item rounded-3 py-2" href="project-id-card.html">Project A</a></li>
+            <li><a class="dropdown-item rounded-3 py-2" href="#" target="_blank" rel="noopener">Project B</a></li>
+            <li><a class="dropdown-item rounded-3 py-2" href="#" target="_blank" rel="noopener">Project C</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link px-2" href="#expertise">Expertise</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="#experience">Experience</a></li>
+        <li class="nav-item mt-2 mt-lg-0 ms-lg-1">
+          <a class="btn btn-sm btn-outline-dark rounded-pill px-3" href="https://behance.net/arifmia88" target="_blank" rel="noopener">Behance</a>
+        </li>
+        <li class="nav-item mt-2 mt-lg-0 ms-lg-1">
+          <a class="btn btn-sm btn-primary bg-gradient rounded-pill px-4" href="#contact">Get in Touch</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="position-relative overflow-hidden" id="home" style="padding-top:9.5rem;">
+  <div class="avatar-blob" style="width:32rem;height:32rem;top:-8rem;right:-9rem;"></div>
+  <div class="container container-xl pb-5 position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <span class="badge text-bg-primary bg-opacity-10 text-primary fw-semibold px-3 py-2 rounded-pill mb-3">
+          SANGRAM NGO · BRAND IDENTITY · PRINT &amp; DIGITAL
+        </span>
+        <h1 class="display-4 fw-bold lh-sm mb-3">Every layer, <span class="text-gradient">aligned.</span></h1>
+        <p class="lead text-secondary" style="max-width:32rem;">
+          Eight-plus years across print, publishing, and NGO communications — building brand
+          identities, bilingual documents, and packaging that hold up as well under a loupe
+          as they do on screen.
+        </p>
+        <p class="fs-6" style="font-family:'Noto Sans Bengali',sans-serif;">বাংলা টাইপোগ্রাফিতে বিশেষজ্ঞ।</p>
+        <div class="d-flex gap-3 flex-wrap mt-4">
+          <a href="#work" class="btn btn-primary bg-gradient btn-lg rounded-pill px-4">View Work</a>
+          <a href="#contact" class="btn btn-outline-dark btn-lg rounded-pill px-4">Get in Touch</a>
+        </div>
+        <div class="row g-4 mt-4 pt-2">
+          <div class="col-3"><div class="fs-3 fw-bold fw-display">8+</div><div class="small text-secondary">Years Exp.</div></div>
+          <div class="col-3"><div class="fs-3 fw-bold fw-display">2016</div><div class="small text-secondary">Est.</div></div>
+          <div class="col-3"><div class="fs-3 fw-bold fw-display">6+</div><div class="small text-secondary">Tools</div></div>
+          <div class="col-3"><div class="fs-3 fw-bold fw-display">BN/EN</div><div class="small text-secondary">Bilingual</div></div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="position-relative mx-auto" style="max-width:300px;">
+          <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary bg-opacity-10 rounded-4" style="transform:translate(14px,14px);"></div>
+          <img src="assets/portrait-suit.png" class="img-fluid rounded-4 shadow-lg position-relative" alt="Md Arif Mia">
+          <img src="assets/am-logo.png" class="position-absolute" style="width:56px;bottom:-14px;right:-10px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.2));" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- WORK -->
+<section id="work" class="py-5 py-lg-6">
+  <div class="container container-xl py-4">
+    <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5 reveal">
+      <div>
+        <span class="text-primary fw-semibold small text-uppercase">Portfolio</span>
+        <h2 class="fw-bold">Our Some Work</h2>
+      </div>
+      <p class="text-secondary mb-0" style="max-width:20rem;">Selected projects — live, straight from Behance.</p>
+    </div>
+
+    <div class="marquee-outer mb-3">
+      <div class="marquee-track track-a">
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/218532573/BorDeGuna-Logo-Design-Company-Logo" target="_blank" rel="noopener">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Identity</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/868149218532573.Y3JvcCwyMjUwLDE3NTksMCwyMg.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="BorDeGuna Logo Design">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">BorDeGuna Logo Design</h3>
+            <p class="small text-secondary mb-0">Company logo and brand mark design.</p>
+          </div>
+        </a>
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/166409335/Brochure-Design-Trifold-creative-brochure" target="_blank" rel="noopener">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Publication</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/9cf22e166409335.Y3JvcCwzODM1LDMwMDAsODUsMA.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="Trifold Brochure Design">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">Trifold Brochure Design</h3>
+            <p class="small text-secondary mb-0">Creative trifold brochure layout and print design.</p>
+          </div>
+        </a>
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/220277387/Dry-Fish-Packet-Design" target="_blank" rel="noopener">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Packaging</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/dc94c9220277387.Y3JvcCwzMDE5LDIzNjIsNTksMA.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="Dry Fish Packet Design">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">Dry Fish Packet Design</h3>
+            <p class="small text-secondary mb-0">Print-ready packaging artwork for a retail food product.</p>
+          </div>
+        </a>
+        <!-- duplicate for seamless loop -->
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/218532573/BorDeGuna-Logo-Design-Company-Logo" target="_blank" rel="noopener" aria-hidden="true">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Identity</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/868149218532573.Y3JvcCwyMjUwLDE3NTksMCwyMg.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">BorDeGuna Logo Design</h3>
+            <p class="small text-secondary mb-0">Company logo and brand mark design.</p>
+          </div>
+        </a>
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/166409335/Brochure-Design-Trifold-creative-brochure" target="_blank" rel="noopener" aria-hidden="true">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Publication</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/9cf22e166409335.Y3JvcCwzODM1LDMwMDAsODUsMA.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">Trifold Brochure Design</h3>
+            <p class="small text-secondary mb-0">Creative trifold brochure layout and print design.</p>
+          </div>
+        </a>
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/220277387/Dry-Fish-Packet-Design" target="_blank" rel="noopener" aria-hidden="true">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Packaging</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/dc94c9220277387.Y3JvcCwzMDE5LDIzNjIsNTksMA.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">Dry Fish Packet Design</h3>
+            <p class="small text-secondary mb-0">Print-ready packaging artwork for a retail food product.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="marquee-outer">
+      <div class="marquee-track track-b">
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/218358721/Business-Card-Design" target="_blank" rel="noopener">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Corporate</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/ebb7de218358721.Y3JvcCwxMzM0LDEwNDMsMzMsMzM.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="Business Card Design">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">Business Card Design</h3>
+            <p class="small text-secondary mb-0">Corporate stationery and business card design.</p>
+          </div>
+        </a>
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/168482897/Ramadan-Calender-Design" target="_blank" rel="noopener">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Print</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/b4e32d168482897.Y3JvcCwxNDAwLDEwOTUsMCw4Mw.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="Ramadan Calendar Design">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">Ramadan Calendar Design</h3>
+            <p class="small text-secondary mb-0">Seasonal calendar design for print distribution.</p>
+          </div>
+        </a>
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/166413747/Awareness-Poster-Design-free-download" target="_blank" rel="noopener">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Social &amp; Print</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/a20bca166413747.Y3JvcCwxOTUxLDE1MjYsMCwxMTU.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="Awareness Poster Design">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">Awareness Poster Design</h3>
+            <p class="small text-secondary mb-0">Public awareness poster, designed for print and social sharing.</p>
+          </div>
+        </a>
+        <!-- duplicate for seamless loop -->
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/218358721/Business-Card-Design" target="_blank" rel="noopener" aria-hidden="true">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Corporate</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/ebb7de218358721.Y3JvcCwxMzM0LDEwNDMsMzMsMzM.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">Business Card Design</h3>
+            <p class="small text-secondary mb-0">Corporate stationery and business card design.</p>
+          </div>
+        </a>
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/168482897/Ramadan-Calender-Design" target="_blank" rel="noopener" aria-hidden="true">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Print</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/b4e32d168482897.Y3JvcCwxNDAwLDEwOTUsMCw4Mw.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">Ramadan Calendar Design</h3>
+            <p class="small text-secondary mb-0">Seasonal calendar design for print distribution.</p>
+          </div>
+        </a>
+        <a class="card work-card-fixed border-0 shadow-sm text-decoration-none" href="https://www.behance.net/gallery/166413747/Awareness-Poster-Design-free-download" target="_blank" rel="noopener" aria-hidden="true">
+          <div class="position-relative">
+            <span class="badge bg-white text-primary position-absolute m-2 rounded-pill shadow-sm">Social &amp; Print</span>
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/a20bca166413747.Y3JvcCwxOTUxLDE1MjYsMCwxMTU.jpg" class="card-img-top" style="height:170px;object-fit:cover;" loading="lazy" alt="">
+          </div>
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-dark mb-1">Awareness Poster Design</h3>
+            <p class="small text-secondary mb-0">Public awareness poster, designed for print and social sharing.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="https://www.behance.net/arifmia88" target="_blank" rel="noopener" class="btn btn-outline-dark rounded-pill px-4">See Full Portfolio on Behance</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise" class="py-5 py-lg-6 bg-white">
+  <div class="container container-xl py-4">
+    <div class="mb-5 reveal">
+      <span class="text-primary fw-semibold small text-uppercase">Capabilities</span>
+      <h2 class="fw-bold">Core Expertise</h2>
+      <p class="text-secondary" style="max-width:32rem;">Where design meets documentation, print meets pixel.</p>
+    </div>
+    <div class="row g-5 align-items-center reveal">
+      <div class="col-lg-5">
+        <div class="position-relative">
+          <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary bg-opacity-10 rounded-4" style="transform:translate(-14px,14px);"></div>
+          <img src="assets/portrait-checkered.png" class="img-fluid rounded-4 shadow-lg position-relative" alt="Md Arif Mia">
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="list-group list-group-flush">
+          <div class="list-group-item list-group-item-action border-0 border-bottom d-flex align-items-center gap-3 px-2 py-3">
+            <span class="bg-primary bg-gradient rounded-circle d-inline-block flex-shrink-0" style="width:.5rem;height:.5rem;"></span>
+            <span class="fw-display fw-medium">Brand Identity &amp; Logo Design</span>
+          </div>
+          <div class="list-group-item list-group-item-action border-0 border-bottom d-flex align-items-center gap-3 px-2 py-3">
+            <span class="bg-primary bg-gradient rounded-circle d-inline-block flex-shrink-0" style="width:.5rem;height:.5rem;"></span>
+            <span class="fw-display fw-medium">Report &amp; Publication Design</span>
+          </div>
+          <div class="list-group-item list-group-item-action border-0 border-bottom d-flex align-items-center gap-3 px-2 py-3">
+            <span class="bg-primary bg-gradient rounded-circle d-inline-block flex-shrink-0" style="width:.5rem;height:.5rem;"></span>
+            <span class="fw-display fw-medium">Project Documentation &amp; Report Writing</span>
+          </div>
+          <div class="list-group-item list-group-item-action border-0 border-bottom d-flex align-items-center gap-3 px-2 py-3">
+            <span class="bg-primary bg-gradient rounded-circle d-inline-block flex-shrink-0" style="width:.5rem;height:.5rem;"></span>
+            <span class="fw-display fw-medium">Corporate Communication Design</span>
+          </div>
+          <div class="list-group-item list-group-item-action border-0 border-bottom d-flex align-items-center gap-3 px-2 py-3">
+            <span class="bg-primary bg-gradient rounded-circle d-inline-block flex-shrink-0" style="width:.5rem;height:.5rem;"></span>
+            <span class="fw-display fw-medium">Print &amp; Digital Media Design</span>
+          </div>
+          <div class="list-group-item list-group-item-action border-0 border-bottom d-flex align-items-center gap-3 px-2 py-3">
+            <span class="bg-primary bg-gradient rounded-circle d-inline-block flex-shrink-0" style="width:.5rem;height:.5rem;"></span>
+            <span class="fw-display fw-medium">Bengali Typography &amp; Layout Design</span>
+          </div>
+          <div class="list-group-item list-group-item-action border-0 border-bottom d-flex align-items-center gap-3 px-2 py-3">
+            <span class="bg-primary bg-gradient rounded-circle d-inline-block flex-shrink-0" style="width:.5rem;height:.5rem;"></span>
+            <span class="fw-display fw-medium">Packaging &amp; Label Design</span>
+          </div>
+          <div class="list-group-item list-group-item-action border-0 border-bottom d-flex align-items-center gap-3 px-2 py-3">
+            <span class="bg-primary bg-gradient rounded-circle d-inline-block flex-shrink-0" style="width:.5rem;height:.5rem;"></span>
+            <span class="fw-display fw-medium">Infographics &amp; Data Visualization</span>
+          </div>
+          <div class="list-group-item list-group-item-action border-0 border-bottom d-flex align-items-center gap-3 px-2 py-3">
+            <span class="bg-primary bg-gradient rounded-circle d-inline-block flex-shrink-0" style="width:.5rem;height:.5rem;"></span>
+            <span class="fw-display fw-medium">Presentation Design</span>
+          </div>
+          <div class="list-group-item list-group-item-action border-0 border-bottom d-flex align-items-center gap-3 px-2 py-3">
+            <span class="bg-primary bg-gradient rounded-circle d-inline-block flex-shrink-0" style="width:.5rem;height:.5rem;"></span>
+            <span class="fw-display fw-medium">Print Production &amp; Prepress</span>
+          </div>
+          <div class="list-group-item list-group-item-action border-0 d-flex align-items-center gap-3 px-2 py-3">
+            <span class="bg-primary bg-gradient rounded-circle d-inline-block flex-shrink-0" style="width:.5rem;height:.5rem;"></span>
+            <span class="fw-display fw-medium">Creative Direction &amp; Visual Communication</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-5 py-lg-6">
+  <div class="container container-xl py-4">
+    <div class="mb-5 reveal">
+      <span class="text-primary fw-semibold small text-uppercase">Profile</span>
+      <h2 class="fw-bold">About</h2>
+    </div>
+    <div class="row g-5 align-items-center reveal">
+      <div class="col-lg-4">
+        <img src="assets/portrait-casual.png" class="img-fluid rounded-4 shadow-lg" alt="Md Arif Mia">
+      </div>
+      <div class="col-lg-8">
+        <p class="text-secondary fs-6">
+          I'm <b class="text-dark">Md Arif Mia</b>, a graphic design and documentation professional with over
+          eight years of combined experience across print, publishing, and NGO communications.
+        </p>
+        <p class="text-secondary fs-6">
+          I built my foundation in prepress and print production at Asia Printing Press, then
+          led client-facing print collections as Senior Graphic Designer at College Gate Binding
+          &amp; Printing. Today I lead design and documentation for <b class="text-dark">Sangram NGO's</b>
+          flagship rural development programme, after several years managing its media and social
+          communications output.
+        </p>
+        <div class="border-start border-4 border-primary bg-soft-primary rounded-3 px-3 py-2 my-3" style="font-family:'Noto Sans Bengali',sans-serif;">
+          বাংলা টাইপোগ্রাফি ও দ্বিভাষিক ডকুমেন্ট প্রোডাকশনে বিশেষ দক্ষতা।
+        </div>
+        <span class="badge bg-light text-dark border rounded-pill px-3 py-2 me-2">Bangla <b class="text-primary">Native</b></span>
+        <span class="badge bg-light text-dark border rounded-pill px-3 py-2">English <b class="text-primary">Professional</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-5 py-lg-6 bg-white">
+  <div class="container container-xl py-4">
+    <div class="mb-5 reveal">
+      <span class="text-primary fw-semibold small text-uppercase">Toolkit</span>
+      <h2 class="fw-bold">Software</h2>
+      <p class="text-secondary" style="max-width:32rem;">The toolkit behind every brand, page, and edit.</p>
+    </div>
+    <div class="marquee-outer reveal">
+      <div class="marquee-track track-c">
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4">
+          <div class="mx-auto mb-2 rounded-3 bg-dark text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">Ps</div>
+          <div class="fw-display fw-semibold small">Photoshop</div>
+          <div class="text-primary small fw-semibold">Expert</div>
+        </div>
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4">
+          <div class="mx-auto mb-2 rounded-3 bg-primary text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">Ai</div>
+          <div class="fw-display fw-semibold small">Illustrator</div>
+          <div class="text-primary small fw-semibold">Advanced</div>
+        </div>
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4">
+          <div class="mx-auto mb-2 rounded-3 bg-primary bg-opacity-75 text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">Id</div>
+          <div class="fw-display fw-semibold small">InDesign</div>
+          <div class="text-primary small fw-semibold">Advanced</div>
+        </div>
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4">
+          <div class="mx-auto mb-2 rounded-3 bg-secondary text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">Fi</div>
+          <div class="fw-display fw-semibold small">Filmora</div>
+          <div class="text-primary small fw-semibold">Expert</div>
+        </div>
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4">
+          <div class="mx-auto mb-2 rounded-3 bg-dark text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">Pr</div>
+          <div class="fw-display fw-semibold small">Premiere Pro</div>
+          <div class="text-primary small fw-semibold">Expert</div>
+        </div>
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4">
+          <div class="mx-auto mb-2 rounded-3 bg-primary bg-gradient text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">AI</div>
+          <div class="fw-display fw-semibold small">AI Design Tools</div>
+          <div class="text-primary small fw-semibold">Expert</div>
+        </div>
+        <!-- duplicate for seamless loop -->
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4" aria-hidden="true">
+          <div class="mx-auto mb-2 rounded-3 bg-dark text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">Ps</div>
+          <div class="fw-display fw-semibold small">Photoshop</div>
+          <div class="text-primary small fw-semibold">Expert</div>
+        </div>
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4" aria-hidden="true">
+          <div class="mx-auto mb-2 rounded-3 bg-primary text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">Ai</div>
+          <div class="fw-display fw-semibold small">Illustrator</div>
+          <div class="text-primary small fw-semibold">Advanced</div>
+        </div>
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4" aria-hidden="true">
+          <div class="mx-auto mb-2 rounded-3 bg-primary bg-opacity-75 text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">Id</div>
+          <div class="fw-display fw-semibold small">InDesign</div>
+          <div class="text-primary small fw-semibold">Advanced</div>
+        </div>
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4" aria-hidden="true">
+          <div class="mx-auto mb-2 rounded-3 bg-secondary text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">Fi</div>
+          <div class="fw-display fw-semibold small">Filmora</div>
+          <div class="text-primary small fw-semibold">Expert</div>
+        </div>
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4" aria-hidden="true">
+          <div class="mx-auto mb-2 rounded-3 bg-dark text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">Pr</div>
+          <div class="fw-display fw-semibold small">Premiere Pro</div>
+          <div class="text-primary small fw-semibold">Expert</div>
+        </div>
+        <div class="card tool-card-fixed border-0 shadow-sm text-center py-4" aria-hidden="true">
+          <div class="mx-auto mb-2 rounded-3 bg-primary bg-gradient text-white d-flex align-items-center justify-content-center fw-display fw-bold" style="width:52px;height:52px;">AI</div>
+          <div class="fw-display fw-semibold small">AI Design Tools</div>
+          <div class="text-primary small fw-semibold">Expert</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="py-5 py-lg-6">
+  <div class="container container-xl py-4">
+    <div class="mb-5 reveal">
+      <span class="text-primary fw-semibold small text-uppercase">Journey</span>
+      <h2 class="fw-bold">Experience</h2>
+    </div>
+    <div class="timeline-rail reveal">
+      <div class="position-relative pb-5">
+        <span class="timeline-dot rounded-circle bg-white border border-primary border-3"></span>
+        <div class="card border-0 shadow-sm p-4">
+          <span class="text-primary small fw-semibold">Jan 2024 — Present</span>
+          <h3 class="h5 fw-bold mt-1 mb-0">Design &amp; Documentation Officer</h3>
+          <div class="text-secondary small mb-3">Sangram NGO</div>
+          <ul class="text-secondary small mb-0 ps-3">
+            <li class="mb-1">Design social media postcards, press releases, news cards, and official documents for Sangram and its programmes, including the RAISE project.</li>
+            <li class="mb-1">Produce formal Bangla policy documents and reports with accurate typography and professional layout.</li>
+            <li>Provide design support to sister-concern organisations under the Sangram umbrella.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="position-relative pb-5">
+        <span class="timeline-dot rounded-circle bg-white border border-primary border-3"></span>
+        <div class="card border-0 shadow-sm p-4">
+          <span class="text-primary small fw-semibold">Jan 2019 — Dec 2023</span>
+          <h3 class="h5 fw-bold mt-1 mb-0">Media Officer</h3>
+          <div class="text-secondary small mb-3">Sangram NGO</div>
+          <ul class="text-secondary small mb-0 ps-3">
+            <li class="mb-1">Managed day-to-day media and social communications output for the organisation.</li>
+            <li class="mb-1">Created promotional and event-based content aligned with organisational branding.</li>
+            <li>Coordinated documentation and reporting materials across programmes.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="position-relative pb-5">
+        <span class="timeline-dot rounded-circle bg-white border border-primary border-3"></span>
+        <div class="card border-0 shadow-sm p-4">
+          <span class="text-primary small fw-semibold">Feb 2017 — Dec 2018</span>
+          <h3 class="h5 fw-bold mt-1 mb-0">Senior Graphic Designer</h3>
+          <div class="text-secondary small mb-3">College Gate Binding &amp; Printing, Dhaka</div>
+          <ul class="text-secondary small mb-0 ps-3">
+            <li class="mb-1">Led design production for print and binding projects, overseeing layout, prepress, and print-readiness.</li>
+            <li>Worked directly with clients to develop print collateral to specification.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="position-relative">
+        <span class="timeline-dot rounded-circle bg-white border border-primary border-3"></span>
+        <div class="card border-0 shadow-sm p-4">
+          <span class="text-primary small fw-semibold">Feb 2016 — Jan 2017</span>
+          <h3 class="h5 fw-bold mt-1 mb-0">Creative Executive</h3>
+          <div class="text-secondary small mb-3">Asia Printing House, Dhaka</div>
+          <ul class="text-secondary small mb-0 ps-3">
+            <li class="mb-1">Supported creative and design production for a range of print projects.</li>
+            <li>Gained foundational experience in prepress workflow and print production.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="bg-dark bg-gradient text-light position-relative overflow-hidden py-4 py-lg-5">
+  <div class="avatar-blob" style="width:22rem;height:22rem;bottom:-9rem;left:-8rem;"></div>
+  <div class="container container-xl position-relative">
+    <div class="row g-4">
+      <div class="col-lg-5">
+        <img src="assets/am-logo.png" height="30" class="mb-2" style="filter:brightness(0) invert(1);opacity:.9;" alt="AM Logo">
+        <h2 class="display-6 fw-bold mb-2">LET'S <span class="text-primary">TALK.</span></h2>
+        <p class="text-light text-opacity-75 small mb-1" style="max-width:24rem;">
+          Get in touch for new projects, brand identity, or documentation work.
+        </p>
+        <p class="text-light text-opacity-50 small mb-3" style="font-family:'Noto Sans Bengali',sans-serif;max-width:24rem;">
+          যোগাযোগ করতে দ্বিধা করবেন না।
+        </p>
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="mailto:mdarifmahmud94@gmail.com" class="btn btn-sm btn-primary bg-gradient rounded-pill px-3">Send an Email</a>
+          <a href="https://behance.net/arifmia88" target="_blank" class="btn btn-sm btn-outline-light rounded-pill px-3">View Behance</a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-6">
+        <span class="text-uppercase small text-light text-opacity-50 fw-semibold d-block mb-2">Contact</span>
+        <span class="small text-light text-opacity-50 fw-semibold d-block mb-1">Primary Email</span>
+        <a href="mailto:mdarifmahmud94@gmail.com" class="d-block small text-light mb-2 text-decoration-none">mdarifmahmud94@gmail.com</a>
+        <span class="small text-light text-opacity-50 fw-semibold d-block mb-1">Direct Telephone &amp; WhatsApp</span>
+        <a href="tel:+8801829371662" class="d-block small text-light mb-2 text-decoration-none">+880 1829-371662</a>
+        <p class="small text-light text-opacity-75 mb-0">Mohammadpur, Dhaka-1207,<br>Current Posting: Barguna, Bangladesh</p>
+      </div>
+      <div class="col-lg-4 col-6">
+        <span class="text-uppercase small text-light text-opacity-50 fw-semibold d-block mb-2">Elsewhere</span>
+        <a href="https://behance.net/arifmia88" target="_blank" class="d-block small text-light mb-2 text-decoration-none">behance.net/arifmia88</a>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between flex-wrap gap-2 border-top border-light border-opacity-10 pt-3 mt-3">
+      <span class="small text-light text-opacity-50">© 2026 MD ARIF MIA</span>
+      <span class="small text-light text-opacity-50">DESIGNED FOR PRINT &amp; SCREEN</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', ()=>{
+    nav.classList.toggle('py-2', window.scrollY > 30);
+    nav.classList.toggle('py-3', window.scrollY <= 30);
+  });
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
